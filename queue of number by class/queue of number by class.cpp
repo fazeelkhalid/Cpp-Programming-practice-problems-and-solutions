@@ -3,70 +3,59 @@
 using namespace std;
 
 class Queue {
-	int array[5];
-	int size;
+	private:
+		int array[5];
+		int size;
+	
 	public:
-	Queue(){
-		size = 0;
-	}
-	
-	void enqueue(int a) {
-		if(size < 5) {
-			array[size] = a;
-			size++;
+		Queue(){
+			size = 0;
 		}
-		else
-			cout<<"Queue full";
-	}
-	
-	int dequeue() {
-		size--;
-		return array[size];
-	}
-	
-	bool isFull() {
-		if(this->size < 5) {
-			cout<<"Queue not full";
-		}
-		else
-			cout<<"Queue is full";
-	}
 		
-	void isEmpty() {
-		if(size == 0) {
-			cout<<"Queue is empty";
+		void enqueue(int a) {
+			if(!isFull()) {
+				array[size] = a;
+				size++;
+			}
+			else
+				cout<<"Queue full";
 		}
-		else
-			cout<<"Queue not empty";
-	}
-
-	int top() {
-		return array[--size];						
-	}
+		
+		int dequeue() {
+			size--;
+			return array[size];
+		}
+		
+		bool isFull() {
+			return this->size == 5;
+		}
+			
+		bool isEmpty() {
+			return size == 0;
+		}
 	
-	int bottom() {
-		return array[0];
-	}
+		int top() {
+			return array[size - 1];						
+		}
+		
+		int bottom() {
+			return array[0];
+		}
+		
 	
 };
 
 int main() {
-	Queue q;
 	
-	q.enqueue(109);
-	q.enqueue(19);
-	q.enqueue(9);
- 	q.enqueue(92);
- 	q.enqueue(39);
- 	q.enqueue(392);
- 	
- 	
- 	q.isEmpty();
- 	
-	cout<<endl;
-	q.dequeue();
-	cout<<q.top();
- 	
+	Queue a;
+	a.enqueue(126);
+	a.enqueue(112);
+	a.enqueue(122);
+	a.enqueue(127);
+	a.enqueue(13);
+	
+	a.dequeue();
+	
+	
 	return 0;
-
 }
