@@ -41,50 +41,50 @@ class List {
 		temp = this->head;
 		
 		while(temp != NULL) {		
-			cout<<temp->number<<endl;
+			cout<<temp->number<<", ";
 			temp = temp->next;
 		}
+		cout<<endl;
 		return;
 	}
 	
-	void delet(int X) {
+	void remove(int X) {
 		Node *temp;
 		temp = this->head;
-		while(temp->number != X) {
+		Node *a;
+		
+		if(head->number == X) {
+			head = head->next;
+			delete temp;	
+			return ;
+		}
+		
+		
+		while(temp->next != NULL) {
+			if(temp->next->number == X){
+				a = temp->next;
+				temp->next = temp->next->next;
+				a->next = NULL;
+				delete a;
+				return;
+			}
 			temp = temp->next;
 		}
-		if(temp->number == X) {
-			delete(temp);
-		}
-		else 
-		cout<<X<<" that you enter is not present";
-	}	
+	}
 };
 
 int main() {
 	List l;
-	int X;
-	
-	cout<<"Enter number: ";
-	cin>>X;
-	l.add(X);
-	
-	cout<<"Enter number: ";
-	cin>>X;
-	l.add(X);
-	
-	cout<<"Enter number: ";
-	cin>>X;
-	l.add(X);
+	l.add(5);
+	l.add(10);
+	l.add(15);
+	l.add(1);
 	
 	l.print();
 	
-	cout<<"Number you want to delete: ";
-	cin>>X;
-	l.delet(X);
+	l.remove(1);
 	
 	l.print();
 	
 	return 0;
-
 }
