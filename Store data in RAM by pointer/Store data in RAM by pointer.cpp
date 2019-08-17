@@ -22,7 +22,7 @@ class List {
 		n->number = X;
 		n->next = NULL;
 		
-		if(this->head == NULL) {
+		if(this->is_Empty()) {
 			this->head = n;
 			return;
 		}
@@ -85,11 +85,19 @@ class List {
 		}
 	
 		return false;
-	}	
+	}
+	
+	bool is_Empty() {
+		if(head == NULL) {
+			return true;
+		}
+		else
+			return false;		
+	}
+
 };
 
 int main() {
-	
 	List l;
 	l.add(5);
 	l.add(10);
@@ -103,5 +111,7 @@ int main() {
 	l.print();
 	
 	cout<<l.search(45);
+	cout<<endl;
+	cout<<l.is_Empty();
 	return 0;
 }
