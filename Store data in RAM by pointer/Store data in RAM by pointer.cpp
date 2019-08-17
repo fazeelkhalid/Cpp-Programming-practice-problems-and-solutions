@@ -85,10 +85,11 @@ class List {
 		}
 	
 		return false;
-	}
+	}	
 };
 
 int main() {
+	
 	List l;
 	l.add(5);
 	l.add(10);
@@ -102,6 +103,5 @@ int main() {
 	l.print();
 	
 	cout<<l.search(45);
-
 	return 0;
 }
