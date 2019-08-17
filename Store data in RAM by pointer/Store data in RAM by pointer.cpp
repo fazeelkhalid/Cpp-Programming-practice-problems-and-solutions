@@ -71,6 +71,21 @@ class List {
 			temp = temp->next;
 		}
 	}
+	
+	bool search(int X) {
+		Node *temp = this->head;
+		
+		while(temp !=NULL) {
+			
+			if(temp->number == X) {
+				return true;
+			}		
+			
+			temp = temp->next;
+		}
+	
+		return false;
+	}
 };
 
 int main() {
@@ -78,13 +93,15 @@ int main() {
 	l.add(5);
 	l.add(10);
 	l.add(15);
-	l.add(1);
+	l.add(99);
 	
 	l.print();
 	
-	l.remove(1);
+	l.remove(15);
 	
 	l.print();
 	
+	cout<<l.search(45);
+
 	return 0;
 }
