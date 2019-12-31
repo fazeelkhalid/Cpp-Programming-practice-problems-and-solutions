@@ -1,0 +1,1 @@
+add mygraphics.h header file before use game
